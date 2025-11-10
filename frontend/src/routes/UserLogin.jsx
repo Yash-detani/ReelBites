@@ -15,12 +15,12 @@ const UserLogin = () => {
 
         <form className="auth-form" onSubmit={(e)=>e.preventDefault()}>
           <div className="field">
-            <label>Email</label>
-            <input className="input" placeholder="you@example.com" />
+            <label htmlFor="email">Email</label>
+            <input id="email" name="email" className="input" placeholder="you@example.com" />
           </div>
           <div className="field">
-            <label>Password</label>
-            <input className="input" type="password" placeholder="Your password" />
+            <label htmlFor="password">Password</label>
+            <input id="password" name="password" className="input" type="password" placeholder="Your password" />
           </div>
 
           <div className="actions">

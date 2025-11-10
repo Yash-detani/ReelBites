@@ -15,22 +15,22 @@ const PartnerRegister = () => {
 
         <form className="auth-form" onSubmit={(e)=>e.preventDefault()}>
           <div className="field">
-            <label>Business name</label>
-            <input className="input" placeholder="Tasty Eats" />
+            <label htmlFor="businessName">Business name</label>
+            <input id="businessName" name="businessName" className="input" placeholder="Tasty Eats" />
           </div>
           <div className="field">
-            <label>Contact email</label>
-            <input className="input" placeholder="owner@tastyeats.com" />
-          </div>
-
-          <div className="field">
-            <label>Phone (no country code)</label>
-            <input className="input" inputMode="tel" pattern="[0-9]*" placeholder="555555555" />
+            <label htmlFor="email">Contact email</label>
+            <input id="email" name="email" className="input" placeholder="owner@tastyeats.com" />
           </div>
 
           <div className="field">
-            <label>Password</label>
-            <input className="input" type="password" placeholder="Min 8 characters" />
+            <label htmlFor="phone">Phone (no country code)</label>
+            <input id="phone" name="phone" className="input" inputMode="tel" pattern="[0-9]*" placeholder="555555555" />
+          </div>
+
+          <div className="field">
+            <label htmlFor="password">Password</label>
+            <input id="password" name="password" className="input" type="password" placeholder="Min 8 characters" />
           </div>
 
           <div className="actions">

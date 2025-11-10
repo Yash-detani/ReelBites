@@ -1,8 +1,20 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import '../styles/auth.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const UserRegister = () => {
+
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const fullName = e.target.fullName.value;
+        console.log(fullName)
+        
+}
   return (
     <div className="auth-page">
       <div className="auth-card">
@@ -14,19 +26,19 @@ const UserRegister = () => {
           </div>
         </div>
 
-        <form className="auth-form" onSubmit={(e)=>e.preventDefault()}>
+        <form className="auth-form" onSubmit={handleSubmit}>
           <div className="field">
-            <label>Full name</label>
-            <input className="input" placeholder="Jane Doe" />
+            <label htmlFor="fullName">Full name</label>
+            <input id="fullName" name="fullName" className="input" placeholder="Jane Doe" />
           </div>
           <div className="field">
-            <label>Email</label>
-            <input className="input" placeholder="you@example.com" />
+            <label htmlFor="email">Email</label>
+            <input id="email" name="email" className="input" placeholder="you@example.com" />
           </div>
 
           <div className="field">
-            <label>Password</label>
-            <input className="input" type="password" placeholder="Min 8 characters" />
+            <label htmlFor="password">Password</label>
+            <input id="password" name="password" className="input" type="password" placeholder="Min 8 characters" />
           </div>
 
           <div className="actions">
