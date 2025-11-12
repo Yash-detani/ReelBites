@@ -1,7 +1,40 @@
 import React from 'react'
 import '../styles/auth.css'
+// import {Link} from 'react-router-dom';
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const PartnerRegister = () => {
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const businessName = e.target.businessName.value;
+
+    const email = e.target.email.value;
+    const phone = e.target.phone.value;
+    const password = e.target.password.value;
+
+    const response =  await axios.post("http://localhost:3000/api/auth/food-partner/register", {
+      name:businessName,
+      email,
+      phoneNumber: phone,
+      password
+    }, {
+      withCredentials: true
+    })
+      .then(response => {
+        console.log(response.data);
+        navigate("/create-food");
+
+      })
+      .catch(error => {
+        console.error("There was an error!", error);
+      });
+      
+    };
   return (
     <div className="auth-page">
       <div className="auth-card">
@@ -13,7 +46,7 @@ const PartnerRegister = () => {
           </div>
         </div>
 
-        <form className="auth-form" onSubmit={(e)=>e.preventDefault()}>
+        <form className="auth-form" onSubmit={handleSubmit}>
           <div className="field">
             <label htmlFor="businessName">Business name</label>
             <input id="businessName" name="businessName" className="input" placeholder="Tasty Eats" />

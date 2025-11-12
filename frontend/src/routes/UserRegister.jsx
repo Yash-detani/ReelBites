@@ -12,8 +12,24 @@ const UserRegister = () => {
         e.preventDefault();
 
         const fullName = e.target.fullName.value;
-        console.log(fullName)
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        const response =   await axios.post("http://localhost:3000/api/auth/user/register", {
+            fullName,
+            email,
+          password
+        },
         
+        
+        {
+          withCredentials: true
+        })
+        
+
+        console.log(response.data);
+
+        navigate("/");
 }
   return (
     <div className="auth-page">
