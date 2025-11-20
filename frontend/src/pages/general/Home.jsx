@@ -34,7 +34,7 @@ const Reel = ({ item, isActive, onPlay }) => {
         <div className="placeholder" style={{ background: item.color }} aria-hidden />
       )}
       <div className="reel-overlay">
-        <div className="reel-desc">{item.desc}</div>
+        <div className="reel-desc">{item.description}</div>
         <Link className="reel-button" to={"/food-partner/" + item.foodPartner} aria-label='Visit Store'>Visit Store</Link>
       </div>
     </div>

@@ -39,7 +39,7 @@
 }
 .reel-desc {
   max-width: 880px;
-  color: var(--primary-contrast);
+  color: #c7ff00d1;
   font-size: 16px;
   text-align: center;
   line-height: 1.2;
@@ -63,7 +63,7 @@
 
 /* Dark theme tweak for button */
 @media (prefers-color-scheme: dark){
-  .reel-button{ background: rgba(255,255,255,0.06); color: var(--primary-contrast); border: 1px solid rgba(255,255,255,0.06);} 
+  .reel-button{ background: rgba(12 51 210); color: #ffff; border: 1px solid rgba(255,255,255,0.06);} 
 }
 
 /* Small screens - move overlay slightly up so it doesn't overlap nav */

@@ -16,5 +16,9 @@ router.post('/', authMiddleware.authFoodPartnerMiddleware,upload.single("video")
 /* GET /api/food/ [protected]*/
 
 router.get('/', authMiddleware.authUserMiddleware, foodController.getFoodItems);
+
+router.get('/like', authMiddleware.authUserMiddleware, foodController.likeFoodItem);
+
+router.post('/save', authMiddleware.authUserMiddleware, foodController.saveFoodItem);
  
 module.exports = router;
