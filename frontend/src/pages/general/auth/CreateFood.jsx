@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom';
 import './createfood.css'
 import axios from 'axios';
 
 const CreateFood = () => {
+  const [videoFile, setVideoFile] = useState(null)
   const [videoName, setVideoName] = useState(null)
   const [videoPreview, setVideoPreview] = useState(null)
   const [videoSize, setVideoSize] = useState(null)
@@ -11,9 +13,12 @@ const CreateFood = () => {
   const [description, setDescription] = useState('')
   const inputRef = useRef(null)
 
+  const navigate = useNavigate();
+
   const onVideoChange = (e, fileFromDrop) => {
     const file = fileFromDrop || (e?.target?.files && e.target.files[0])
     if (file) {
+      setVideoFile(file);
       setVideoName(file.name)
       setVideoSize(file.size)
       if (videoPreview) URL.revokeObjectURL(videoPreview)
@@ -62,13 +67,16 @@ const CreateFood = () => {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('description', description);
-    formData.append('video', videoName);
+    formData.append('video', videoFile);
 
     const response = await axios.post("http://localhost:3000/api/food", formData, {
       withCredentials: true,
     });
+
+
     console.log(response.data);
-  }
+    navigate("/")
+  };
 
   useEffect(() => {
     return () => {
