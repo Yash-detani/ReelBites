@@ -25,7 +25,7 @@ const Reel = ({ item, isActive, onPlay }) => {
   }, [isActive]);
 
   async function likeVideo(item){
-    const response = await axios.post("http://localhost:3000/api/food/like", {foodId: item._id}, {withCredentials: true});
+    const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/food/like`, {foodId: item._id}, {withCredentials: true});
 
     if(response.data.like){
       console.log("Video liked");
@@ -38,7 +38,7 @@ const Reel = ({ item, isActive, onPlay }) => {
   }
 
   async function bookmarkVideo(item) {
-    const response = await axios.post("http://localhost:3000/api/food/save", { foodId: item._id }, { withCredentials: true });
+    const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/food/save`, { foodId: item._id }, { withCredentials: true });
 
     if (response.data.save) {
       console.log("Video saved");
@@ -91,7 +91,7 @@ const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/food", { withCredentials: true })
+    axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/food`, { withCredentials: true })
       .then(response => {
         console.log(response.data);
         setReels(response.data.foodItems);

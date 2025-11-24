@@ -12,7 +12,7 @@ const PartnerLogin = () => {
       const email = e.target.email.value;
       const password = e.target.password.value;
 
-      const response = await axios.post("http://localhost:3000/api/auth/food-partner/login", {
+      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/auth/food-partner/login`, {
           email ,
           password},{
             withCredentials: true
